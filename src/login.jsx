@@ -1,26 +1,7 @@
 import logo from "./assets/100xlogo.svg";
+import Buttons from "./buttons";
+import { Base } from "./components";
 
-//buttons
-function Buttons(props) {
-  const base =
-    "px-6 py-2 rounded-full font-bold items-center disabled:opacity-50 disabled:pointer-events-none";
-
-  const variant = {
-    blue: "text-neutral-50 bg-twitter-blue hover:bg-twitter-blue-2",
-    white: " text-neutral-1000 bg-neutral-50 hover:bg-neutral-200",
-    outline:
-      "text-twitter-blue bg-neutral-1000 hover:bg-neutral-900 border-blue-wash border-2",
-  };
-  const sizes = {
-    sm: "",
-    md: "w-20",
-    lg: "w-full",
-  };
-
-  const classes = `${base} ${variant[props.variant]} ${sizes[props.size]}`;
-
-  return <button className={classes}>{props.text}</button>;
-}
 //Header
 function Header() {
   return (
@@ -29,6 +10,19 @@ function Header() {
       src={logo}
       alt="100xlogo"
     />
+  );
+}
+
+//Container
+function Container({ children }) {
+  return (
+    <>
+      <div className="justify-center items-start lg:items-center flex px-7">
+        <div className="flex items-center md:gap-6 lg:gap-25 flex-col md:flex-row">
+          {children}
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -42,12 +36,12 @@ function MainContent() {
         </h1>
         <h3 className="text-base md:text-2.5xl pb-10 font-bold">Join today.</h3>
         <div className="pr-7">
-          <a href="../src/step1.html">
+          <a href="./step1.jsx">
             <Buttons
               variant="white"
               size="lg"
               text="Create account"
-              // disabled={true}
+              disabled={true}
             />
           </a>
           <div className="flex items-center justify-center py-10 gap-1">
@@ -68,12 +62,12 @@ function MainContent() {
 function App() {
   return (
     <>
-      <div className="font-inter bg-neutral-1000 text-neutral-50 h-screen w-screen justify-center items-start lg:items-center flex px-7">
-        <div className="flex items-center md:gap-6 lg:gap-25 flex-col md:flex-row">
+      <Base>
+        <Container>
           <Header />
           <MainContent />
-        </div>
-      </div>
+        </Container>
+      </Base>
     </>
   );
 }
