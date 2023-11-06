@@ -6,7 +6,7 @@ export default function Step1() {
           <header className="flex items-center gap-5 py-3">
             <a href="../src/index.html">
               <button>
-                <img src="../public/images/cancel.svg" alt="cancel" />
+                <img src="./assets/cancel.svg" alt="cancel" />
               </button>
             </a>
             <h4 className="text-sm2 font-bold">Step 1 of 4</h4>
