@@ -15,7 +15,7 @@ export default function Buttons(props) {
   };
 
   const classes = `${base} ${variant[props.variant]} ${sizes[props.size]}`;
-  console.log("disabled ", props.disabled);
+  // console.log("disabled ", props.disabled);
   return (
     <button className={classes} disabled={props.disabled}>
       {props.text}
